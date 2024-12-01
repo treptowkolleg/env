@@ -114,3 +114,35 @@ if($pdo = $environment->getDatabaseObject()) {
     // continue sql queries
 }
 ````
+
+## Example
+
+````php
+<?php
+
+
+use TreptowKolleg\DatabaseContainer;
+use TreptowKolleg\Environment;
+
+require 'vendor/autoload.php';
+
+$env = new Environment();
+$env->addContainer(new DatabaseContainer());
+
+// Alle Attribute des Containers "database" ausgeben
+foreach ($env->getContainer("database")->getAttributes() as $attribute => $value) {
+    echo "$attribute: $value\n";
+}
+
+// SQL-Abfrage durchführen, falls Datenbank-Verbindung hergestellt werden konnte
+if($pdo = $env->getDatabaseObject()) {
+    $statement = $pdo->query("SELECT 5 * 2");
+    $statement->execute();
+    $statement->setFetchMode(\PDO::FETCH_ASSOC);
+    $rows = $statement->fetchAll();
+
+    foreach ($rows as $column => $value) {
+        echo "$column: $value\n";
+    }
+}
+````
