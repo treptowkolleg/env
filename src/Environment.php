@@ -42,13 +42,13 @@ class Environment
         return $this->containers[$name] ?? null;
     }
 
-    public function getDatabaseContainer(): DatabaseInterface
+    public function getDatabaseContainer(): ?\PDO
     {
         $container = $this->getContainer("database");
         if($container instanceof DatabaseInterface) {
-        $pdo = $container->getPDO();
-        // continue processing db queries
-    }
+            return $container->getPDO();
+        }
+        else return null;
     }
 
     public function setContainers(array $containers): static
