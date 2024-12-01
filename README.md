@@ -101,10 +101,16 @@ use special methods to instantiate a ``PDO``-Object.
 ````php
 <?php
 
+$dbContainer = $environment->getContainer('database');
+if($dbContainer instanceof \TreptowKolleg\Interface\DatabaseInterface) {
+    $pdo = $dbContainer->getPDO();
+    $statement = $pdo->query("SELECT 5 + 1");
+    // continue sql queries
+}
+
+// or much simpler:
 if($pdo = $environment->getDatabaseObject()) {
     $statement = $pdo->query("SELECT 5 + 1");
-    $statement->setFetchMode(\PDO::FETCH_ASSOC);
-    $statement->execute();
-    $result = $statement->fetchAll();
+    // continue sql queries
 }
 ````
