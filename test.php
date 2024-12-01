@@ -14,7 +14,7 @@ foreach ($env->getContainer("database")->getAttributes() as $attribute => $value
 }
 $dbContainer = $env->getContainer("database");
 if($dbContainer instanceof DatabaseInterface) {
-    $pdo = new PDO($dbContainer->getDSN(), $dbContainer->getUser(), $dbContainer->getPassword());
+    $pdo = $dbContainer->getPDO();
     $statement = $pdo->query("SELECT 5 + 1");
     $statement->setFetchMode(\PDO::FETCH_ASSOC);
     $statement->execute();

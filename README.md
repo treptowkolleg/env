@@ -104,7 +104,7 @@ use special methods to instantiate a ``PDO``-Object.
 $database = $environment->getContainer("database");
 
 if($database implements \TreptowKolleg\DatabaseInterface) {
-    $pdo = new PDO($database->getDSN(), $database->getUser(), $database->getPassword());
+    $pdo = $database->getPDO();
     // continue processing db queries
 }
 ````
