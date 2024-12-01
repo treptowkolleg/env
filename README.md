@@ -8,6 +8,21 @@ composer require treptowkolleg/env
 
 ## Usage
 
+### Env Files
+
+````dotenv
+# db credentials
+DB_HOST=localhost
+DB_NAME=databaseName
+DB_USER=databaseUsername
+DB_PASS=1234
+
+# custom vars
+VAR_1=x
+VAR_2=y
+VAR_3=z
+````
+
 ### Environment
 
 | Parameter | Type                       | Options                                         | Description                                     |
