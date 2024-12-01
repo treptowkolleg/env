@@ -12,12 +12,14 @@ class Environment
     public function __construct(Path $path = Path::LOCAL_DIR, string $subDir = null, string $customEnv = null)
     {
         $this->fileSystem = new FileSystem($path, $subDir, $customEnv);
-        $file = null;
-        if(file_exists(ROOT . ".env.local")) {
+
+        if(file_exists($this->fileSystem->getFilePath(".env.local"))) {
             $file = $this->fileSystem->getFileContentAsArray(".env.local");
 
-        } elseif(file_exists(ROOT . ".env")) {
+        } elseif(file_exists($this->fileSystem->getFilePath(".env"))) {
             $file = $this->fileSystem->getFileContentAsArray(".env");
+        } else {
+            exit(".env or .env.local not found in {$this->fileSystem->getPath()}");
         }
         if($file) {
             foreach ($file as $line) {
