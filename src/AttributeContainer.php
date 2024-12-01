@@ -6,7 +6,7 @@ class AttributeContainer
 {
 
     private string $name;
-    private array $attributes;
+    private array $attributes = [];
     public function __construct(string $name, array $attributes = [])
     {
         $this->name = $name;
@@ -27,6 +27,8 @@ class AttributeContainer
     {
         if($value = getenv($name)) {
             $this->attributes[$name] = $value;
+        } else {
+            $this->attributes[$name] = null;
         }
         return $this;
     }
