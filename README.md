@@ -22,6 +22,7 @@ composer require treptowkolleg/env
 ### Env Files
 
 DotEnv files (``.env``) are used to store risky credentials out of client code.
+Make sure ``.env`` is added to ``.gitignore`` **before commit**.
 
 ````dotenv
 # db credentials
