@@ -2,16 +2,13 @@
 
 use TreptowKolleg\DatabaseContainer;
 use TreptowKolleg\Environment;
-use TreptowKolleg\Interface\DatabaseInterface;
 
 require 'vendor/autoload.php';
 
 $env = new Environment();
 $env->addContainer(new DatabaseContainer());
 
-foreach ($env->getContainer("database")->getAttributes() as $attribute => $value) {
-    echo "$attribute: $value\n";
-}
+
 $dbContainer = $env->getContainer("database");
 if($pdo = $env->getDatabaseObject()) {
     $statement = $pdo->query("SELECT 5 + 1");
@@ -23,6 +20,8 @@ if($pdo = $env->getDatabaseObject()) {
             echo "$key = $value\n";
         }
     }
+} else {
+    echo "Kein PDO-Objekt da!";
 }
 
 
