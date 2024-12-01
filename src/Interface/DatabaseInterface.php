@@ -11,4 +11,6 @@ interface DatabaseInterface
 
     public function getPassword(): ?string;
 
+    public function getPDO(): \PDO;
+
 }

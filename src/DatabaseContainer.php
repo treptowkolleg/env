@@ -30,4 +30,12 @@ class DatabaseContainer extends AttributeContainer implements DatabaseInterface
     }
 
 
+    public function getPDO(): \PDO
+    {
+        try {
+            return new \PDO($this->getDSN(), $this->getUser(), $this->getPassword());
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
 }
