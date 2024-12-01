@@ -101,8 +101,6 @@ use special methods to instantiate a ``PDO``-Object.
 ````php
 <?php
 
-$database = $environment->getContainer("database");
-
 if($pdo = $environment->getDatabaseObject()) {
     $statement = $pdo->query("SELECT 5 + 1");
     $statement->setFetchMode(\PDO::FETCH_ASSOC);
