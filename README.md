@@ -82,6 +82,8 @@ class MyContainer extends \TreptowKolleg\AttributeContainer
         parent::__construct("my_container", ["MY_VAR1", "MY_VAR2", "MY_VAR3"]);
     }
 }
+
+$environment->addContainer(new MyContainer());
 ````
 
 ### Get Container Parameter
