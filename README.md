@@ -103,8 +103,10 @@ use special methods to instantiate a ``PDO``-Object.
 
 $database = $environment->getContainer("database");
 
-if($database instanceof \TreptowKolleg\DatabaseInterface) {
-    $pdo = $database->getPDO();
-    // continue processing db queries
+if($pdo = $environment->getDatabaseObject()) {
+    $statement = $pdo->query("SELECT 5 + 1");
+    $statement->setFetchMode(\PDO::FETCH_ASSOC);
+    $statement->execute();
+    $result = $statement->fetchAll();
 }
 ````
