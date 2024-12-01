@@ -103,7 +103,7 @@ use special methods to instantiate a ``PDO``-Object.
 
 $database = $environment->getContainer("database");
 
-if($database implements \TreptowKolleg\DatabaseInterface) {
+if($database instanceof \TreptowKolleg\DatabaseInterface) {
     $pdo = $database->getPDO();
     // continue processing db queries
 }

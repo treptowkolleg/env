@@ -2,6 +2,8 @@
 
 namespace TreptowKolleg;
 
+use TreptowKolleg\Interface\DatabaseInterface;
+
 class Environment
 {
 
@@ -38,6 +40,15 @@ class Environment
     public function getContainer(string $name): ?AttributeContainer
     {
         return $this->containers[$name] ?? null;
+    }
+
+    public function getDatabaseContainer(): DatabaseInterface
+    {
+        $container = $this->getContainer("database");
+        if($container instanceof DatabaseInterface) {
+        $pdo = $container->getPDO();
+        // continue processing db queries
+    }
     }
 
     public function setContainers(array $containers): static
