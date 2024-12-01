@@ -13,8 +13,7 @@ foreach ($env->getContainer("database")->getAttributes() as $attribute => $value
     echo "$attribute: $value\n";
 }
 $dbContainer = $env->getContainer("database");
-if($dbContainer instanceof DatabaseInterface) {
-    $pdo = $dbContainer->getPDO();
+if($pdo = $env->getDatabaseObject()) {
     $statement = $pdo->query("SELECT 5 + 1");
     $statement->setFetchMode(\PDO::FETCH_ASSOC);
     $statement->execute();
