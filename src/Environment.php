@@ -19,9 +19,11 @@ class Environment
         } elseif(file_exists(ROOT . ".env")) {
             $file = $this->fileSystem->getFileContentAsArray(".env");
         }
-        foreach ($file as $line) {
-            if ($line[0] != "#") {
-                putenv($line);
+        if($file) {
+            foreach ($file as $line) {
+                if ($line[0] != "#") {
+                    putenv($line);
+                }
             }
         }
     }

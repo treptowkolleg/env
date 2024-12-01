@@ -2,7 +2,7 @@
   "name": "treptowkolleg/env",
   "description": "file system package",
   "type": "package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "mit",
   "autoload": {
     "psr-4": {
