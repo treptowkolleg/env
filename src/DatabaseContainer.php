@@ -2,7 +2,7 @@
 
 namespace TreptowKolleg\Environment;
 
-use TreptowKolleg\Interface\DatabaseInterface;
+use TreptowKolleg\Environment\Interface\DatabaseInterface;
 
 class DatabaseContainer extends AttributeContainer implements DatabaseInterface
 {
