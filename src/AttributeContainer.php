@@ -1,6 +1,6 @@
 <?php
 
-namespace TreptowKolleg;
+namespace TreptowKolleg\Environment;
 
 class AttributeContainer
 {

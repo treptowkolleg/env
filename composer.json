@@ -2,11 +2,11 @@
   "name": "treptowkolleg/env",
   "description": "file system package",
   "type": "package",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "mit",
   "autoload": {
     "psr-4": {
-      "TreptowKolleg\\": "src/"
+      "TreptowKolleg\\Environment\\": "src/"
     }
   },
   "authors": [
