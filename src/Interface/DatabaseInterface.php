@@ -1,6 +1,6 @@
 <?php
 
-namespace TreptowKolleg\Interface;
+namespace TreptowKolleg\Environment\Interface;
 
 interface DatabaseInterface
 {
