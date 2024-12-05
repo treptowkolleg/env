@@ -16,7 +16,7 @@ class DatabaseContainer extends AttributeContainer implements DatabaseInterface
     {
         $host =  $this->getAttribute("DB_HOST") ?? exit("DB_HOST is not set in .env or .env.local file");
         $dbName = $this->getAttribute("DB_NAME") ?? exit("DB_NAME is not set in .env or .env.local file");
-        return "mysql:host=$host;dbname=$dbName";
+        return "mysql:host=$host;dbname=$dbName;charset=UTF8";
     }
 
     public function getUser(): ?string
