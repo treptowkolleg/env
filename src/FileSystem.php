@@ -27,12 +27,12 @@ class FileSystem
     private function getRootPath(): string
     {
         if(!defined('ROOT')) {
-            if(php_sapi_name() === 'cli') {
-                define('ROOT', realpath(dirname($_SERVER['PHP_SELF'])) . DIRECTORY_SEPARATOR);
+            if(PHP_SAPI === 'cli') {
+                $root = realpath(getcwd()) ?: '';
             } else {
-                define('ROOT', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR);
+                $root = realpath($_SERVER['DOCUMENT_ROOT']) ?: '';
             }
-
+            define('ROOT', rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
         }
         return ROOT;
     }
